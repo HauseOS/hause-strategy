@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-zinc-950 text-zinc-50">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>
