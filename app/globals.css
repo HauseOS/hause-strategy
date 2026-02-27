@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: 0 0% 3%;
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 63%;
+  --accent: 0 84% 60%;
+  --border: 0 0% 14%;
+}
+
+.light {
+  color-scheme: light;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 0 84% 60%;
+  --border: 0 0% 89%;
+}
+
+html {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Smooth transitions for theme */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: hsl(var(--accent));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
