@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "@/lib/theme-provider";
+import { Button } from "@/components/ui/button";
 import { Sun, Moon } from "lucide-react";
 
 export default function PublicationMonetizationPage() {
@@ -32,14 +33,15 @@ export default function PublicationMonetizationPage() {
             <span className="text-muted-foreground">/</span>
             <span className="text-foreground">Publication Monetization</span>
           </div>
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleTheme}
-            className="p-2 hover:bg-card rounded-lg transition"
             aria-label="Toggle theme"
           >
             <Sun className="w-4 h-4 hidden dark:block" />
             <Moon className="w-4 h-4 dark:hidden" />
-          </button>
+          </Button>
         </div>
       </nav>
 
@@ -107,7 +109,7 @@ export default function PublicationMonetizationPage() {
             <h2 className="text-3xl leading-tight mb-6">The Three-Layer Model</h2>
 
             {/* Layer 1 */}
-            <div className="card p-8 mb-6 space-y-4">
+            <div className="rounded-lg border bg-card border-border p-8 mb-6 space-y-4">
               <h3 className="text-2xl">Layer 1: Free Editorial (Already Live)</h3>
               <div className="space-y-3 text-foreground leading-relaxed">
                 <p>
@@ -126,7 +128,7 @@ export default function PublicationMonetizationPage() {
             </div>
 
             {/* Layer 2 */}
-            <div className="card p-8 mb-6 space-y-4">
+            <div className="rounded-lg border bg-card border-border p-8 mb-6 space-y-4">
               <h3 className="text-2xl">Layer 2: Newsletter + Affiliates (Launch Mar 2026)</h3>
               <div className="space-y-3 text-foreground leading-relaxed">
                 <p>
@@ -148,7 +150,7 @@ export default function PublicationMonetizationPage() {
             </div>
 
             {/* Layer 3 */}
-            <div className="card p-8 space-y-4">
+            <div className="rounded-lg border bg-card border-border p-8 space-y-4">
               <h3 className="text-2xl">Layer 3: Membership Tier (Launch May 2026)</h3>
               <div className="space-y-3 text-foreground leading-relaxed">
                 <p>
@@ -182,7 +184,7 @@ export default function PublicationMonetizationPage() {
 
             <div className="space-y-4">
               {/* February */}
-              <div className="card p-6 border-l-2 border-l-accent">
+              <div className="rounded-lg border bg-card border-border p-6 border-l-2 border-l-accent">
                 <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
                   February 2026 (Foundation)
                 </p>
@@ -195,7 +197,7 @@ export default function PublicationMonetizationPage() {
               </div>
 
               {/* March */}
-              <div className="card p-6 border-l-2 border-l-accent">
+              <div className="rounded-lg border bg-card border-border p-6 border-l-2 border-l-accent">
                 <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
                   March 2026 (Newsletter Launch)
                 </p>
@@ -208,7 +210,7 @@ export default function PublicationMonetizationPage() {
               </div>
 
               {/* May */}
-              <div className="card p-6 border-l-2 border-l-accent">
+              <div className="rounded-lg border bg-card border-border p-6 border-l-2 border-l-accent">
                 <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">
                   May 2026 (Membership Launch)
                 </p>
@@ -226,21 +228,21 @@ export default function PublicationMonetizationPage() {
             <h2 className="text-3xl leading-tight mb-6">Risks & Mitigation</h2>
 
             <div className="space-y-4">
-              <div className="card p-6">
+              <div className="rounded-lg border bg-card border-border p-6">
                 <p className="font-medium mb-2">Newsletter doesn't grow fast enough</p>
                 <p className="text-muted-foreground text-sm">
                   Cross-promote in YouTube description, end-screen cards, and in-video mentions.
                 </p>
               </div>
 
-              <div className="card p-6">
+              <div className="rounded-lg border bg-card border-border p-6">
                 <p className="font-medium mb-2">Membership paywall hurts SEO</p>
                 <p className="text-muted-foreground text-sm">
                   Keep 80% of content free. Gate only premium guides and templates.
                 </p>
               </div>
 
-              <div className="card p-6">
+              <div className="rounded-lg border bg-card border-border p-6">
                 <p className="font-medium mb-2">Affiliate links erode reader trust</p>
                 <p className="text-muted-foreground text-sm">
                   Only recommend tools Hause actually uses. Disclose affiliate relationships clearly.

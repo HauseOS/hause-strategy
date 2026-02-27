@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "@/lib/theme-provider";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Sun, Moon } from "lucide-react";
 
 export default function Home() {
@@ -13,7 +15,6 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    // Check if already authenticated
     const auth = localStorage.getItem("hause-strategy-auth");
     if (auth === "true") {
       setAuthenticated(true);
@@ -41,7 +42,7 @@ export default function Home() {
         <div className="w-full max-w-md">
           <div className="text-center mb-12">
             <div className="mb-8 flex justify-center">
-              <div className="w-12 h-12 rounded-lg border border-card-border bg-card flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg border border-border bg-card flex items-center justify-center">
                 <span className="text-accent font-light text-xl">◐</span>
               </div>
             </div>
@@ -54,22 +55,16 @@ export default function Home() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                className="w-full px-4 py-3 bg-card border border-card-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition"
-                autoFocus
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full px-4 py-3 bg-accent hover:bg-accent/90 text-white rounded-lg font-medium transition"
-            >
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
+              autoFocus
+            />
+            <Button type="submit" className="w-full">
               Continue
-            </button>
+            </Button>
           </form>
 
           <p className="text-center text-muted-foreground text-xs mt-6">
@@ -94,14 +89,15 @@ export default function Home() {
             </div>
             <span className="text-sm font-medium">Hause Strategy</span>
           </Link>
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleTheme}
-            className="p-2 hover:bg-card rounded-lg transition"
             aria-label="Toggle theme"
           >
             <Sun className="w-4 h-4 hidden dark:block" />
             <Moon className="w-4 h-4 dark:hidden" />
-          </button>
+          </Button>
         </div>
       </nav>
 
@@ -124,7 +120,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Revenue Section */}
           <Link href="/revenue">
-            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+            <div className="group rounded-lg border bg-card border-border transition-all hover:border-accent/30 p-8 cursor-pointer">
               <div className="mb-6 text-3xl">💰</div>
               <h2 className="text-2xl mb-3 group-hover:text-accent transition">
                 Revenue
@@ -142,7 +138,7 @@ export default function Home() {
 
           {/* Roadmaps Section */}
           <Link href="/roadmaps">
-            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+            <div className="group rounded-lg border bg-card border-border transition-all hover:border-accent/30 p-8 cursor-pointer">
               <div className="mb-6 text-3xl">📅</div>
               <h2 className="text-2xl mb-3 group-hover:text-accent transition">
                 Roadmaps
@@ -160,7 +156,7 @@ export default function Home() {
 
           {/* Research Section */}
           <Link href="/research">
-            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+            <div className="group rounded-lg border bg-card border-border transition-all hover:border-accent/30 p-8 cursor-pointer">
               <div className="mb-6 text-3xl">🔍</div>
               <h2 className="text-2xl mb-3 group-hover:text-accent transition">
                 Research

@@ -1,67 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+@layer base {
+  :root {
+    --background: 6 11% 5%;
+    --foreground: 0 0% 95%;
+    --card: 6 11% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 6 11% 8%;
+    --popover-foreground: 0 0% 95%;
+    --muted: 6 11% 20%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 6 11% 15%;
+    --input: 6 11% 15%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 6 11% 20%;
+    --secondary-foreground: 0 0% 95%;
+    --ring: 0 84% 60%;
+    --radius: 0.5rem;
+  }
 
-:root {
-  color-scheme: dark;
-  --background: 0 0% 4%;
-  --foreground: 0 0% 95%;
-  --muted: 0 0% 20%;
-  --muted-foreground: 0 0% 55%;
-  --border: 0 0% 15%;
-  --accent: 0 84% 60%;
-  --card: 0 0% 8%;
-  --card-border: 0 0% 16%;
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 85%;
+    --input: 0 0% 95%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 10%;
+    --ring: 0 84% 60%;
+  }
 }
 
-.light {
-  color-scheme: light;
-  --background: 0 0% 100%;
-  --foreground: 0 0% 10%;
-  --muted: 0 0% 90%;
-  --muted-foreground: 0 0% 45%;
-  --border: 0 0% 85%;
-  --accent: 0 84% 60%;
-  --card: 0 0% 98%;
-  --card-border: 0 0% 90%;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug;
+  }
 }
 
-* {
-  @apply border-border;
-}
-
-body {
-  @apply bg-background text-foreground;
-  font-family: 'Inter', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Crimson Text', serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  @apply text-5xl leading-tight;
-}
-
-h2 {
-  @apply text-3xl leading-snug;
-}
-
-h3 {
-  @apply text-2xl leading-snug;
-}
-
-a {
-  @apply text-accent transition-colors hover:opacity-80;
-}
-
-/* Card styling */
-.card {
-  @apply rounded-lg border bg-card border-card-border transition-all hover:border-accent/30;
+@layer components {
+  .card-hover {
+    @apply rounded-lg border bg-card border-card transition-all hover:border-accent/30;
+  }
 }
 
 /* Smooth transitions */
