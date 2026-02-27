@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,26 +6,17 @@
 
 @layer base {
   :root {
-    --background: 6 11% 5%;
+    --background: 0 0% 3%;
     --foreground: 0 0% 95%;
-    --card: 6 11% 8%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 95%;
-    --popover: 6 11% 8%;
-    --popover-foreground: 0 0% 95%;
-    --muted: 6 11% 20%;
+    --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
     --accent: 0 84% 60%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 6 11% 15%;
-    --input: 6 11% 15%;
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 6 11% 20%;
-    --secondary-foreground: 0 0% 95%;
-    --ring: 0 84% 60%;
-    --radius: 0.5rem;
+    --border: 0 0% 14%;
+    --input: 0 0% 10%;
+    --radius: 0.75rem;
   }
 
   .light {
@@ -33,21 +24,12 @@
     --foreground: 0 0% 10%;
     --card: 0 0% 98%;
     --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 50%;
     --accent: 0 84% 60%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
     --border: 0 0% 85%;
     --input: 0 0% 95%;
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 90%;
-    --secondary-foreground: 0 0% 10%;
-    --ring: 0 84% 60%;
   }
 }
 
@@ -55,7 +37,7 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
@@ -65,7 +47,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   h1 {
@@ -77,7 +59,21 @@
   }
 
   h3 {
-    @apply text-2xl leading-snug;
+    @apply text-xl leading-snug;
+  }
+
+  p {
+    @apply text-foreground/90;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .card-border {
+    @apply border border-border rounded-lg;
   }
 }
 
@@ -99,7 +95,7 @@ html {
   @apply bg-muted rounded-full hover:bg-muted-foreground;
 }
 
-/* Selection styling */
+/* Selection */
 ::selection {
-  @apply bg-accent/20 text-foreground;
+  @apply bg-accent/30 text-foreground;
 }
