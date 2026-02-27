@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useTheme } from "@/lib/theme-provider";
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [mounted, setMounted] = useState(false);
   const { toggleTheme } = useTheme();
-  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
