@@ -2,46 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   color-scheme: dark;
-  --background: 0 0% 3%;
-  --foreground: 0 0% 98%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 63%;
+  --background: 0 0% 4%;
+  --foreground: 0 0% 95%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 55%;
+  --border: 0 0% 15%;
   --accent: 0 84% 60%;
-  --border: 0 0% 14%;
+  --card: 0 0% 8%;
+  --card-border: 0 0% 16%;
 }
 
 .light {
   color-scheme: light;
   --background: 0 0% 100%;
-  --foreground: 0 0% 3%;
+  --foreground: 0 0% 10%;
   --muted: 0 0% 90%;
-  --muted-foreground: 0 0% 40%;
+  --muted-foreground: 0 0% 45%;
+  --border: 0 0% 85%;
   --accent: 0 84% 60%;
-  --border: 0 0% 89%;
+  --card: 0 0% 98%;
+  --card-border: 0 0% 90%;
 }
 
-html {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+* {
+  @apply border-border;
 }
 
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  @apply bg-background text-foreground;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Smooth transitions for theme */
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  @apply text-5xl leading-tight;
+}
+
+h2 {
+  @apply text-3xl leading-snug;
+}
+
+h3 {
+  @apply text-2xl leading-snug;
 }
 
 a {
-  color: hsl(var(--accent));
-  text-decoration: none;
+  @apply text-accent transition-colors hover:opacity-80;
 }
 
-a:hover {
-  text-decoration: underline;
+/* Card styling */
+.card {
+  @apply rounded-lg border bg-card border-card-border transition-all hover:border-accent/30;
+}
+
+/* Smooth transitions */
+html {
+  @apply transition-colors duration-300;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-muted-foreground;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-accent/20 text-foreground;
 }

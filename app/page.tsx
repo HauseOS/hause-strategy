@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "@/lib/theme-provider";
+import { Sun, Moon } from "lucide-react";
 
 export default function Home() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,26 +37,20 @@ export default function Home() {
 
   if (!authenticated) {
     return (
-      <div className="min-h-screen bg-zinc-950 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-12">
-            <div className="mb-6">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                className="mx-auto"
-              >
-                <rect x="4" y="8" width="32" height="24" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-                <path d="M12 12v-2a8 8 0 0 1 16 0v2" stroke="currentColor" strokeWidth="2" />
-                <circle cx="20" cy="22" r="1.5" fill="currentColor" />
-              </svg>
+            <div className="mb-8 flex justify-center">
+              <div className="w-12 h-12 rounded-lg border border-card-border bg-card flex items-center justify-center">
+                <span className="text-accent font-light text-xl">◐</span>
+              </div>
             </div>
-            <h1 className="text-3xl font-light tracking-tight mb-2">
+            <h1 className="text-4xl font-light tracking-tight mb-2">
               Hause Strategy
             </h1>
-            <p className="text-zinc-400 text-sm">Internal Documentation Portal</p>
+            <p className="text-muted-foreground text-sm">
+              Internal Documentation Portal
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -65,74 +60,81 @@ export default function Home() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
-                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-50 placeholder-zinc-600 focus:outline-none focus:border-red-500 transition"
+                className="w-full px-4 py-3 bg-card border border-card-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition"
                 autoFocus
               />
             </div>
             <button
               type="submit"
-              className="w-full px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition"
+              className="w-full px-4 py-3 bg-accent hover:bg-accent/90 text-white rounded-lg font-medium transition"
             >
               Continue
             </button>
           </form>
+
+          <p className="text-center text-muted-foreground text-xs mt-6">
+            © 2026 Hause Collective
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="border-b border-zinc-900 sticky top-0 bg-zinc-950/95 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="text-red-600"
-            >
-              <rect x="4" y="8" width="32" height="24" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-              <path d="M12 12v-2a8 8 0 0 1 16 0v2" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            <span className="font-light text-lg">Hause Strategy</span>
-          </div>
+      <nav className="border-b border-border sticky top-0 bg-background/95 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-3 hover:opacity-80 transition"
+          >
+            <div className="w-6 h-6 rounded border border-accent bg-accent/10 flex items-center justify-center">
+              <span className="text-accent font-light text-xs">H</span>
+            </div>
+            <span className="text-sm font-medium">Hause Strategy</span>
+          </Link>
           <button
             onClick={toggleTheme}
-            className="px-3 py-2 text-sm text-zinc-400 hover:text-zinc-50 transition"
+            className="p-2 hover:bg-card rounded-lg transition"
+            aria-label="Toggle theme"
           >
-            ◐
+            <Sun className="w-4 h-4 hidden dark:block" />
+            <Moon className="w-4 h-4 dark:hidden" />
           </button>
         </div>
       </nav>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="mb-16">
-          <p className="text-zinc-400 text-sm mb-4">Strategy Documentation</p>
-          <h1 className="text-5xl font-light tracking-tight mb-4">
-            Strategic Intelligence
+      <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="mb-20">
+          <p className="text-muted-foreground text-xs uppercase tracking-widest mb-4">
+            Strategy Documentation
+          </p>
+          <h1 className="text-6xl leading-tight tracking-tight mb-6">
+            Strategic <br />
+            Intelligence
           </h1>
-          <p className="text-zinc-300 text-lg max-w-2xl">
-            Central repository for Hause Collective's revenue strategy, execution roadmaps, and competitive research.
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            Central repository for Hause Collective's revenue strategy, execution roadmaps, and competitive research. Make informed decisions backed by data.
           </p>
         </div>
 
         {/* Sections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Revenue Section */}
           <Link href="/revenue">
-            <div className="group p-8 border border-zinc-900 rounded-lg hover:border-zinc-800 transition cursor-pointer bg-zinc-900/20 hover:bg-zinc-900/40">
-              <div className="mb-4 text-2xl">💰</div>
-              <h2 className="text-2xl font-light mb-2">Revenue</h2>
-              <p className="text-zinc-400 text-sm mb-6">
-                Monetization strategies, pricing models, and revenue projections.
+            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+              <div className="mb-6 text-3xl">💰</div>
+              <h2 className="text-2xl mb-3 group-hover:text-accent transition">
+                Revenue
+              </h2>
+              <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                Monetization strategies, pricing models, and revenue projections for sustainable growth.
               </p>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <li className="flex items-center gap-2">
-                  <span className="text-red-600">→</span> Publication Monetization
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2 text-muted-foreground group-hover:text-accent transition">
+                  <span className="text-accent">→</span> Publication Monetization
                 </li>
               </ul>
             </div>
@@ -140,15 +142,17 @@ export default function Home() {
 
           {/* Roadmaps Section */}
           <Link href="/roadmaps">
-            <div className="group p-8 border border-zinc-900 rounded-lg hover:border-zinc-800 transition cursor-pointer bg-zinc-900/20 hover:bg-zinc-900/40">
-              <div className="mb-4 text-2xl">📅</div>
-              <h2 className="text-2xl font-light mb-2">Roadmaps</h2>
-              <p className="text-zinc-400 text-sm mb-6">
-                Execution timelines, milestones, and quarterly planning.
+            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+              <div className="mb-6 text-3xl">📅</div>
+              <h2 className="text-2xl mb-3 group-hover:text-accent transition">
+                Roadmaps
+              </h2>
+              <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                Quarterly execution timelines, milestones, and strategic planning documents.
               </p>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <li className="flex items-center gap-2">
-                  <span className="text-red-600">→</span> Coming soon
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2 text-muted-foreground">
+                  <span className="text-muted-foreground">→</span> Coming soon
                 </li>
               </ul>
             </div>
@@ -156,15 +160,17 @@ export default function Home() {
 
           {/* Research Section */}
           <Link href="/research">
-            <div className="group p-8 border border-zinc-900 rounded-lg hover:border-zinc-800 transition cursor-pointer bg-zinc-900/20 hover:bg-zinc-900/40">
-              <div className="mb-4 text-2xl">🔍</div>
-              <h2 className="text-2xl font-light mb-2">Research</h2>
-              <p className="text-zinc-400 text-sm mb-6">
-                Competitive analysis, audience insights, and market trends.
+            <div className="group card p-8 cursor-pointer hover:bg-card/80">
+              <div className="mb-6 text-3xl">🔍</div>
+              <h2 className="text-2xl mb-3 group-hover:text-accent transition">
+                Research
+              </h2>
+              <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                Competitive analysis, audience insights, and market trends for strategic advantage.
               </p>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <li className="flex items-center gap-2">
-                  <span className="text-red-600">→</span> Coming soon
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2 text-muted-foreground">
+                  <span className="text-muted-foreground">→</span> Coming soon
                 </li>
               </ul>
             </div>
@@ -172,7 +178,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <div className="mt-24 pt-8 border-t border-zinc-900 text-center text-sm text-zinc-500">
+        <div className="mt-24 pt-12 border-t border-border text-center text-xs text-muted-foreground">
           <p>© 2026 Hause Collective · Internal Strategy Portal</p>
         </div>
       </div>
