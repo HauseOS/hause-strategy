@@ -15,12 +15,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="bg-background text-foreground antialiased font-sans">
         <ThemeProvider defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
